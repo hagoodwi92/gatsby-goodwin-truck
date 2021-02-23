@@ -1,29 +1,44 @@
-import * as React from "react"
-import logo from "./goodwin-logo.jpg"
+import * as React from 'react';
+import {ListGroup } from 'react-bootstrap';
+import Card from "react-bootstrap/Card";
 
-const IndexPage = () => {
+
+const BoxTest = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <img src={logo} alt='logo'></img>
-      <h1>Goodwin's Truck and Equipment</h1>
-      <h3 style={headingStyles}>
-      Your source for quality industrial trucks and equipment
-        <br />
-      </h3>
-      <p style={paragraphStyles}>
-        Feel free to browse our inventory with the buttons on the left.
-        We also have featured inventory listed below on this page.
-        Please contact us anytime to find out more!
-      </p>
-    </main>
+    <Card style={{ width: '18rem' }}>
+      <Card.Header><h3>Our Contact Info: </h3></Card.Header>
+      <ListGroup variant="flush">
+        <ListGroup.Item>Telephone: 404-608-8101</ListGroup.Item>
+        <ListGroup.Item>Email: sales@goodwintruck.com</ListGroup.Item>
+        <ListGroup.Item>Fax: 404-608-0164</ListGroup.Item>
+        <ListGroup.Item>431 Old Dixie Way
+Forest Park, GA 30297</ListGroup.Item>
+      </ListGroup>
+    </Card>
   )
 }
 
-export default IndexPage;
+
+const Contact = () => {
+  return (
+    <main style={pageStyles}>
+      <h1>Contact</h1>
+      <p>Please contact us if you have questions about any of our
+      products.  Please fill out the form below or contact us by
+      telephone, fax, mail, or by e-mail.  Thank you for your
+comments.</p>
+      <BoxTest />
+    </main>
+  )
+}
+export default Contact;
 
 
-// styles
+const boxStyles = {
+  color: 'black',
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+}
+
 const pageStyles = {
   color: "#232129",
   padding: "96px",
