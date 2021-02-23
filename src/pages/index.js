@@ -1,5 +1,6 @@
 import * as React from "react"
 import logo from "./goodwin-logo.jpg"
+import {Link} from 'react-bootstrap'
 
 const IndexPage = () => {
   return (

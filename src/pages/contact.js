@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {ListGroup } from 'react-bootstrap';
-import Card from "react-bootstrap/Card";
-
+import { Row, Col, Card, Form, ListGroup, Button } from 'react-bootstrap/';
 
 const BoxTest = () => {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Header><h3>Our Contact Info: </h3></Card.Header>
+      <Card.Header as='H3'>Our Contact Info:</Card.Header>
       <ListGroup variant="flush">
         <ListGroup.Item>Telephone: 404-608-8101</ListGroup.Item>
         <ListGroup.Item>Email: sales@goodwintruck.com</ListGroup.Item>
@@ -18,16 +16,36 @@ Forest Park, GA 30297</ListGroup.Item>
   )
 }
 
+const FormTest = () => {
+  return(
+  <Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Name: </Form.Label>
+    <Form.Control type="email" placeholder="Ex. John Doe" />
+    <Form.Label>Title: </Form.Label>
+    <Form.Control placeholder="Ex. Plumber" />
+    <Form.Label>Email: </Form.Label>
+    <Form.Control type='email' placeholder="name@example.com" />
+    <Form.Label>Phone: </Form.Label>
+    <Form.Control placeholder="Ex. Plumber" />
+    <Form.Label>Comments: </Form.Label>
+    <Form.Control placeholder="Ex. Plumber" />
+    <Button variant='primary' type='submit'>Submit</Button>
+  </Form.Group>
+</Form>
+  )
+}
+
 
 const Contact = () => {
   return (
     <main style={pageStyles}>
-      <h1>Contact</h1>
+      <h1>Contact Us</h1>
       <p>Please contact us if you have questions about any of our
       products.  Please fill out the form below or contact us by
       telephone, fax, mail, or by e-mail.  Thank you for your
 comments.</p>
-      <BoxTest />
+      <FormTest />
     </main>
   )
 }
