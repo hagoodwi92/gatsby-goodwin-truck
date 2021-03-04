@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Row, Col, Card, Form, ListGroup, Button } from 'react-bootstrap/';
+import { Link } from "gatsby"
 
 const BoxTest = () => {
   return (
@@ -44,7 +45,7 @@ const Contact = () => {
       <p>Please contact us if you have questions about any of our
       products.  Please fill out the form below or contact us by
       telephone, fax, mail, or by e-mail.  Thank you for your
-comments.</p>
+comments.<Link to='/'>Home</Link></p>
       <FormTest />
     </main>
   )
