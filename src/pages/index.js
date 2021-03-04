@@ -1,12 +1,12 @@
 import * as React from "react";
 import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
-import "./global.css";
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = () => {
   return (
     <div>
-      <title>Home Page</title>
+      <title>GoodwinTruck</title>
       <img style={logoSize} src={logo} alt="logo"></img>
       <h1>Goodwin's Truck and Equipment</h1>
       <h3 style={headingAccentStyles}>
@@ -19,18 +19,23 @@ const Header = () => {
 
 export default function IndexPage() {
   return (
+    <React.Fragment>
       <div style={pageStyles}>
         <Header />
         <p style={paragraphStyles}>
-          Feel free to browse our inventory with the buttons on the left. We
-          also have featured inventory listed below on this page. Please{" "}
+          Feel free to browse our inventory{" "}
+          <Link style={linkStyle} to="/inventory">
+            here
+          </Link>
+          .Please{" "}
           <Link style={linkStyle} to="/contact">
             contact us
           </Link>{" "}
           anytime to find out more!
         </p>
-          <Footer />
+        <Footer />
       </div>
+    </React.Fragment>
   );
 }
 
