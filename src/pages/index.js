@@ -1,12 +1,11 @@
 import * as React from "react";
 import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = () => {
   return (
     <div>
-      <title>GoodwinTruck</title>
+      <title>Goodwin's Truck and Equipment</title>
       <img style={logoSize} src={logo} alt="logo"></img>
       <h1>Goodwin's Truck and Equipment</h1>
       <h3 style={headingAccentStyles}>
@@ -22,17 +21,34 @@ export default function IndexPage() {
     <React.Fragment>
       <div style={pageStyles}>
         <Header />
+        <h4>Welcome to our new web site!</h4>
         <p style={paragraphStyles}>
-          Feel free to browse our inventory{" "}
-          <Link style={linkStyle} to="/inventory">
-            here
-          </Link>
-          .Please{" "}
-          <Link style={linkStyle} to="/contact">
-            contact us
-          </Link>{" "}
-          anytime to find out more!
+          {" "}
+          Please navigate our site using the links below:
+          <ul>
+            <li>
+              <Link style={linkStyle} to="/aboutUs">
+                About Us
+              </Link>{" "}
+            </li>
+            <li>
+              <Link style={linkStyle} to="/inventory">
+                Inventory
+              </Link>{" "}
+            </li>
+            <li>
+              <Link style={linkStyle} to="/directions">
+                Directions
+              </Link>{" "}
+            </li>
+            <li>
+              <Link style={linkStyle} to="/contact">
+                Contact
+              </Link>{" "}
+            </li>
+          </ul>
         </p>
+
         <Footer />
       </div>
     </React.Fragment>

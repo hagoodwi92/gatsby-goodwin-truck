@@ -1,22 +1,21 @@
 import * as React from "react";
-import { Row, Col, Card, Form, ListGroup, Button } from "react-bootstrap/";
 import { Link } from "gatsby";
 
-const BoxTest = () => {
-  return (
-      <Card style={pageStyles}>
-        <Card.Header as="H3">Our Contact Info:</Card.Header>
-        <ListGroup variant="flush">
-          <ListGroup.Item>Telephone: 404-608-8101</ListGroup.Item>
-          <ListGroup.Item>Email: sales@goodwintruck.com</ListGroup.Item>
-          <ListGroup.Item>Fax: 404-608-0164</ListGroup.Item>
-          <ListGroup.Item>
-            431 Old Dixie Way Forest Park, GA 30297
-          </ListGroup.Item>
-        </ListGroup>
-      </Card>
-  );
-};
+// const BoxTest = () => {
+//   return (
+//       <Card style={pageStyles}>
+//         <Card.Header as="H3">Our Contact Info:</Card.Header>
+//         <ListGroup variant="flush">
+//           <ListGroup.Item>Telephone: 404-608-8101</ListGroup.Item>
+//           <ListGroup.Item>Email: sales@goodwintruck.com</ListGroup.Item>
+//           <ListGroup.Item>Fax: 404-608-0164</ListGroup.Item>
+//           <ListGroup.Item>
+//             431 Old Dixie Way Forest Park, GA 30297
+//           </ListGroup.Item>
+//         </ListGroup>
+//       </Card>
+//   );
+// };
 
 const FormTest = () => {
   return (
