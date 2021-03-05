@@ -1,6 +1,8 @@
 import * as React from "react";
 import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
+import "fontsource-roboto";
+import {Button} from "@material-ui/core";
 
 const Header = () => {
   return (
@@ -25,30 +27,29 @@ export default function IndexPage() {
         <p style={paragraphStyles}>
           {" "}
           Please navigate our site using the links below:
-          <ul>
-            <li>
-              <Link style={linkStyle} to="/aboutUs">
-                About Us
-              </Link>{" "}
-            </li>
-            <li>
-              <Link style={linkStyle} to="/inventory">
-                Inventory
-              </Link>{" "}
-            </li>
-            <li>
-              <Link style={linkStyle} to="/directions">
-                Directions
-              </Link>{" "}
-            </li>
-            <li>
-              <Link style={linkStyle} to="/contact">
-                Contact
-              </Link>{" "}
-            </li>
-          </ul>
+          <br></br>
+          <br></br>
+            <Link to="/aboutUs">
+              <Button style={buttonStyle} variant="contained" color="primary">
+                <p>About Us</p>
+              </Button>
+            </Link>
+            <Link to="/inventory">
+              <Button style={buttonStyle} variant="contained" color="primary">
+                <p>Inventory</p>
+              </Button>
+            </Link>
+            <Link to="/directions">
+              <Button style={buttonStyle} variant="contained" color="primary">
+                <p>Directions</p>
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button style={buttonStyle} variant="contained" color="primary">
+                <p>Contact</p>
+              </Button>
+            </Link>
         </p>
-
         <Footer />
       </div>
     </React.Fragment>
@@ -67,6 +68,10 @@ const Footer = () => {
 };
 
 // styles
+const buttonStyle = {
+  width: 150,
+  height: 40,
+};
 const space = {
   width: 400,
   height: "auto",

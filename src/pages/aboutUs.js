@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
+import 'fontsource-roboto';
+import Button from "@material-ui/core/Button";
 
 export default function AboutUs() {
   return (
@@ -14,7 +16,7 @@ export default function AboutUs() {
       <br></br>
       <br></br>
       <Link style={linkStyle} to="/">
-        Home
+        <Button variant='contained' color='primary'>Home</Button>
       </Link>
     </div>
   );

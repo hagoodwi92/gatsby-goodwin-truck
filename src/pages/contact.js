@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import Button from "@material-ui/core/Button";
 
 // const BoxTest = () => {
 //   return (
@@ -41,15 +42,20 @@ import { Link } from "gatsby";
 
 const Contact = () => {
   return (
-    <main style={pageStyles}>
+    <div style={pageStyles}>
       <h1 style={headingAccentStyles}>Contact Us</h1>
       <p>
         Please contact us if you have questions about any of our products.
         Please fill out the form below or contact us by telephone, fax, mail, or
-        by e-mail. Thank you for your comments.<Link style={headingAccentStyles} to="/">Home</Link>
+        by e-mail. Thank you for your comments.
       </p>
       {/* <FormTest /> */}
-    </main>
+      <Link style={linkStyle} to="/">
+        <Button variant="contained" color="primary">
+          Home
+        </Button>
+      </Link>
+    </div>
   );
 };
 export default Contact;
