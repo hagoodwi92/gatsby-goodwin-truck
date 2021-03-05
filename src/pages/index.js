@@ -71,6 +71,8 @@ const Footer = () => {
 const buttonStyle = {
   width: 150,
   height: 40,
+  margin: 20,
+  marginLeft:-10
 };
 const space = {
   width: 400,
