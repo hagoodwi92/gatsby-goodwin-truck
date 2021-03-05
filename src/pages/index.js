@@ -8,7 +8,6 @@ const Header = () => {
   return (
     <div>
       <title>Goodwin's Truck and Equipment</title>
-      <img style={logoSize} src={logo} alt="logo"></img>
       <h1>Goodwin's Truck and Equipment</h1>
       <h3 style={headingAccentStyles}>
         Your source for quality industrial trucks and equipment
@@ -26,6 +25,7 @@ export default function IndexPage() {
         <h4>Welcome to our new web site!</h4>
         <p style={paragraphStyles}>
           {" "}
+          <img style={logoSize} src={logo} alt="logo"></img><br></br>
           Please navigate our site using the links below:
           <br></br>
           <br></br>

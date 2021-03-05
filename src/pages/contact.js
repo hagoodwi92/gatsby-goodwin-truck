@@ -1,6 +1,12 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import Button from "@material-ui/core/Button";
+import {
+  Input,
+  FormHelperText,
+  InputLabel,
+  FormControl,
+  Button,
+} from "@material-ui/core";
 
 // const BoxTest = () => {
 //   return (
@@ -18,27 +24,28 @@ import Button from "@material-ui/core/Button";
 //   );
 // };
 
-// const FormTest = () => {
-//   return (
-//     <Form >
-//       <Form.Group controlId="formBasicEmail">
-//         <Form.Label>Name: </Form.Label>
-//         <Form.Control type="email" placeholder="Ex. John Doe" />
-//         <Form.Label>Title: </Form.Label>
-//         <Form.Control placeholder="Ex. Plumber" />
-//         <Form.Label>Email: </Form.Label>
-//         <Form.Control type="email" placeholder="name@example.com" />
-//         <Form.Label>Phone: </Form.Label>
-//         <Form.Control placeholder="Ex. Plumber" />
-//         <Form.Label>Comments: </Form.Label>
-//         <Form.Control placeholder="Ex. Plumber" />
-//         <Button variant="primary" type="submit">
-//           Submit
-//         </Button>
-//       </Form.Group>
-//     </Form>
-//   );
-// };
+const FormTest = () => {
+  return (
+    <React.Fragment>
+      <FormControl>
+        <InputLabel htmlFor="email">Email address</InputLabel>
+        <Input id="email" aria-describedby="email-text" />
+        <FormHelperText id="email-text">
+          We'll never share your email.
+        </FormHelperText>
+        <Button type="submit" color="primary">
+        </Button>
+      </FormControl>
+      <br></br>
+      <br></br>
+      <Link style={linkStyle} to="/">
+        <Button variant="contained" color="primary">
+          Home
+        </Button>
+      </Link>
+    </React.Fragment>
+  );
+};
 
 const Contact = () => {
   return (
@@ -49,12 +56,7 @@ const Contact = () => {
         Please fill out the form below or contact us by telephone, fax, mail, or
         by e-mail. Thank you for your comments.
       </p>
-      {/* <FormTest /> */}
-      <Link style={linkStyle} to="/">
-        <Button variant="contained" color="primary">
-          Home
-        </Button>
-      </Link>
+      <FormTest />
     </div>
   );
 };
