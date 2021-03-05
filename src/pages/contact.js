@@ -17,27 +17,27 @@ import { Link } from "gatsby";
 //   );
 // };
 
-const FormTest = () => {
-  return (
-    <Form >
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Name: </Form.Label>
-        <Form.Control type="email" placeholder="Ex. John Doe" />
-        <Form.Label>Title: </Form.Label>
-        <Form.Control placeholder="Ex. Plumber" />
-        <Form.Label>Email: </Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" />
-        <Form.Label>Phone: </Form.Label>
-        <Form.Control placeholder="Ex. Plumber" />
-        <Form.Label>Comments: </Form.Label>
-        <Form.Control placeholder="Ex. Plumber" />
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form.Group>
-    </Form>
-  );
-};
+// const FormTest = () => {
+//   return (
+//     <Form >
+//       <Form.Group controlId="formBasicEmail">
+//         <Form.Label>Name: </Form.Label>
+//         <Form.Control type="email" placeholder="Ex. John Doe" />
+//         <Form.Label>Title: </Form.Label>
+//         <Form.Control placeholder="Ex. Plumber" />
+//         <Form.Label>Email: </Form.Label>
+//         <Form.Control type="email" placeholder="name@example.com" />
+//         <Form.Label>Phone: </Form.Label>
+//         <Form.Control placeholder="Ex. Plumber" />
+//         <Form.Label>Comments: </Form.Label>
+//         <Form.Control placeholder="Ex. Plumber" />
+//         <Button variant="primary" type="submit">
+//           Submit
+//         </Button>
+//       </Form.Group>
+//     </Form>
+//   );
+// };
 
 const Contact = () => {
   return (
@@ -48,7 +48,7 @@ const Contact = () => {
         Please fill out the form below or contact us by telephone, fax, mail, or
         by e-mail. Thank you for your comments.<Link style={headingAccentStyles} to="/">Home</Link>
       </p>
-      <FormTest />
+      {/* <FormTest /> */}
     </main>
   );
 };
