@@ -2,7 +2,7 @@ import * as React from "react";
 import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
 import "fontsource-roboto";
-import {Button} from "@material-ui/core";
+import {Button, Container} from "@material-ui/core";
 
 const Header = () => {
   return (
@@ -20,15 +20,13 @@ const Header = () => {
 export default function IndexPage() {
   return (
     <React.Fragment>
+      <Container>
       <div style={pageStyles}>
         <Header />
         <h4>Welcome to our new web site!</h4>
-        <p style={paragraphStyles}>
           {" "}
           <img style={logoSize} src={logo} alt="logo"></img><br></br>
-          Please navigate our site using the links below:
-          <br></br>
-          <br></br>
+          <h4>Please navigate our site using the links below:</h4>
             <Link to="/aboutUs">
               <Button style={buttonStyle} variant="contained" color="primary">
                 <p>About Us</p>
@@ -49,21 +47,21 @@ export default function IndexPage() {
                 <p>Contact</p>
               </Button>
             </Link>
-        </p>
         <Footer />
       </div>
+      </Container>
     </React.Fragment>
   );
 }
 
 const Footer = () => {
   return (
-    <div style={paragraphStyles}>
+    <h4>
       <Link style={linkStyle} to="/">
         Goodwin's Truck and Equipment
       </Link>{" "}
       | 404-608-8101 | 431 Old Dixie Way, Forest Park GA 30297
-    </div>
+    </h4>
   );
 };
 
@@ -84,7 +82,6 @@ const logoSize = {
 };
 const pageStyles = {
   color: "#232129",
-  padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 const headingStyles = {
