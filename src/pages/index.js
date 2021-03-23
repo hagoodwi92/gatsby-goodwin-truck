@@ -3,39 +3,6 @@ import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
 import "fontsource-roboto";
 import {Button, Container} from "@material-ui/core";
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { createFirestoreInstance } from 'redux-firestore';
-import firebase from "./firebase";
-import { firestoreReducer } from 'redux-firestore';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import ReactDOM from 'react-dom';
-
-
-
-const rootReducer = combineReducers({
-  firestore: firestoreReducer
-});
-
-const store = createStore(rootReducer);
-
-const rrfProps = {
-  firebase,
-  config: {
-        userProfile: "users"
-    },
-  dispatch: store.dispatch,
-  createFirestoreInstance
-}
-
-ReactDOM.render(
-  <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
-      <IndexPage />
-    </ReactReduxFirebaseProvider>
-  </Provider>,
-  document.getElementById('root')
-)
 
 const Header = () => {
   return (
