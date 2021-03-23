@@ -6,6 +6,7 @@ import {
   InputLabel,
   FormControl,
   Button,
+  Container,
 } from "@material-ui/core";
 
 // const BoxTest = () => {
@@ -33,8 +34,7 @@ const FormTest = () => {
         <FormHelperText id="email-text">
           We'll never share your email.
         </FormHelperText>
-        <Button type="submit" color="primary">
-        </Button>
+        <Button type="submit" color="primary"></Button>
       </FormControl>
       <br></br>
       <br></br>
@@ -50,13 +50,15 @@ const FormTest = () => {
 const Contact = () => {
   return (
     <div style={pageStyles}>
-      <h1 style={headingAccentStyles}>Contact Us</h1>
-      <p>
-        Please contact us if you have questions about any of our products.
-        Please fill out the form below or contact us by telephone, fax, mail, or
-        by e-mail. Thank you for your comments.
-      </p>
-      <FormTest />
+      <Container>
+        <h1 style={headingAccentStyles}>Contact Us</h1>
+        <p>
+          Please contact us if you have questions about any of our products.
+          Please fill out the form below or contact us by telephone, fax, mail,
+          or by e-mail. Thank you for your comments.
+        </p>
+        <FormTest />
+      </Container>
     </div>
   );
 };
@@ -69,7 +71,6 @@ const boxStyles = {
 
 const pageStyles = {
   color: "#232129",
-  padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 const headingStyles = {
