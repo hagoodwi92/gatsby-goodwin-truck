@@ -44,7 +44,7 @@ export default function Inventory(props) {
     <Container style={pageStyles}>
       <h1 style={headingAccentStyles}>Add a Truck</h1>
       <form onSubmit={handleTruckForm}>
-        <label>Truck Name</label>
+        <label>Truck Name: </label>
         <input type="text" name="name" placeholder="Name"></input>
         <button type="submit">Submit</button>
       </form>
@@ -56,6 +56,12 @@ export default function Inventory(props) {
           </li>
         )}</li>
       </ul>
+      <Link to="/">
+            <Button style={buttonStyle} variant="contained" color="primary">
+              <p>Home</p>
+            </Button>
+          </Link>
+      
     </Container>
   );
 }
@@ -73,4 +79,10 @@ const headingAccentStyles = {
 const pageStyles = {
   color: "#232129",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+};
+const buttonStyle = {
+  width: 150,
+  height: 40,
+  margin: 20,
+  marginLeft: -10,
 };
