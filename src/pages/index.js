@@ -2,7 +2,12 @@ import * as React from "react";
 import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
 import "fontsource-roboto";
-import {Button, Container} from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
+import firebase from "./../firebase.js";
+
+firebase.firestore().collection('trucks').add({
+  title: 'test'
+})
 
 const Header = () => {
   return (
@@ -21,34 +26,34 @@ export default function IndexPage() {
   return (
     <React.Fragment>
       <Container>
-      <div style={pageStyles}>
-        <Header />
-        <h4>Welcome to our new web site!</h4>
-          {" "}
-          <img style={logoSize} src={logo} alt="logo"></img><br></br>
+        <div style={pageStyles}>
+          <Header />
+          <h4>Welcome to our new web site!</h4>{" "}
+          <img style={logoSize} src={logo} alt="logo"></img>
+          <br></br>
           <h4>Please navigate our site using the links below:</h4>
-            <Link to="/aboutUs">
-              <Button style={buttonStyle} variant="contained" color="primary">
-                <p>About Us</p>
-              </Button>
-            </Link>
-            <Link to="/inventory">
-              <Button style={buttonStyle} variant="contained" color="primary">
-                <p>Inventory</p>
-              </Button>
-            </Link>
-            <Link to="/directions">
-              <Button style={buttonStyle} variant="contained" color="primary">
-                <p>Directions</p>
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button style={buttonStyle} variant="contained" color="primary">
-                <p>Contact</p>
-              </Button>
-            </Link>
-        <Footer />
-      </div>
+          <Link to="/aboutUs">
+            <Button style={buttonStyle} variant="contained" color="primary">
+              <p>About Us</p>
+            </Button>
+          </Link>
+          <Link to="/inventory">
+            <Button style={buttonStyle} variant="contained" color="primary">
+              <p>Inventory</p>
+            </Button>
+          </Link>
+          <Link to="/directions">
+            <Button style={buttonStyle} variant="contained" color="primary">
+              <p>Directions</p>
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button style={buttonStyle} variant="contained" color="primary">
+              <p>Contact</p>
+            </Button>
+          </Link>
+          <Footer />
+        </div>
       </Container>
     </React.Fragment>
   );
@@ -70,7 +75,7 @@ const buttonStyle = {
   width: 150,
   height: 40,
   margin: 20,
-  marginLeft:-10
+  marginLeft: -10,
 };
 const space = {
   width: 400,
