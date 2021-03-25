@@ -20,22 +20,24 @@ const handleTruckForm = (event) => {
   });
 };
 
-function NewTrucks(){
+function NewTrucks() {
   const [trucks, setTrucks] = useState([]);
 
   useEffect(() => {
-    firebase.firestore().collection("truck").onSnapshot((snapshot) => {
-      const newList = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      setTrucks(newList);
-    })
-  }, [])
+    firebase
+      .firestore()
+      .collection("truck")
+      .onSnapshot((snapshot) => {
+        const newList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setTrucks(newList);
+      });
+  }, []);
 
   return trucks;
 }
-
 
 export default function Inventory(props) {
   const trucks = NewTrucks();
@@ -50,18 +52,17 @@ export default function Inventory(props) {
       </form>
 
       <ul>
-        <li>{trucks.map((truck) =>
-          <li key = {truck.id}>
+        {trucks.map((truck) => (
+          <li key={truck.id}>
             <ul>Name: {truck.name}</ul>
           </li>
-        )}</li>
+        ))}
       </ul>
       <Link to="/">
-            <Button style={buttonStyle} variant="contained" color="primary">
-              <p>Home</p>
-            </Button>
-          </Link>
-      
+        <Button style={buttonStyle} variant="contained" color="primary">
+          <p>Home</p>
+        </Button>
+      </Link>
     </Container>
   );
 }
