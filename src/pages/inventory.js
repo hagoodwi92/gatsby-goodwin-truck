@@ -1,32 +1,62 @@
-import React from "react";
-import { Input, FormHelperText, InputLabel, Button } from "@material-ui/core";
-import { Link } from "gatsby";
+import * as React from "react";
+import {
+  Input,
+  FormHelperText,
+  InputLabel,
+  Button,
+  Container,
+} from "@material-ui/core";
+import { Link, StaticQuery } from "gatsby";
+import firebase from "./../firebase.js";
+import "fontsource-roboto";
+import { propTypes } from "react-bootstrap/esm/Image";
+import { useFirestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
+import { useEffect, useState } from "react";
 
-export default function Inventory() {
+const handleTruckForm = (event) => {
+  event.preventDefault();
+  firebase.firestore().collection("truck").add({
+    name: event.target.name.value,
+  });
+};
+
+function NewTrucks(){
+  const [trucks, setTrucks] = useState([]);
+
+  useEffect(() => {
+    firebase.firestore().collection("truck").onSnapshot((snapshot) => {
+      const newList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setTrucks(newList);
+    })
+  }, [])
+
+  return trucks;
+}
+
+
+export default function Inventory(props) {
+  const trucks = NewTrucks();
+
   return (
-    <div>
-        <h1>Add a Truck</h1>
-        <InputLabel htmlFor="my-input">Model</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">Truck Make/Model</FormHelperText>
-        <br></br>
+    <Container style={pageStyles}>
+      <h1 style={headingAccentStyles}>Add a Truck</h1>
+      <form onSubmit={handleTruckForm}>
+        <label>Truck Name</label>
+        <input type="text" name="name" placeholder="Name"></input>
+        <button type="submit">Submit</button>
+      </form>
 
-        <InputLabel htmlFor="my-input">Brand</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">Truck Brand</FormHelperText>
-        <br></br>
-
-        <InputLabel htmlFor="my-input">Year</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">Truck Year</FormHelperText>
-        <br></br>
-
-        <Link style={linkStyle} to="/">
-          <Button variant="contained" color="primary">
-            Home
-          </Button>
-        </Link>
-    </div>
+      <ul>
+        <li>{trucks.map((truck) =>
+          <li key = {truck.id}>
+            <ul>Name: {truck.name}</ul>
+          </li>
+        )}</li>
+      </ul>
+    </Container>
   );
 }
 
@@ -35,4 +65,12 @@ const linkStyle = {
   fontWeight: "bold",
   fontSize: "16px",
   verticalAlign: "5%",
+};
+
+const headingAccentStyles = {
+  color: "#0e3786",
+};
+const pageStyles = {
+  color: "#232129",
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };

@@ -3,11 +3,7 @@ import logo from "./goodwin-logo.jpg";
 import { Link } from "gatsby";
 import "fontsource-roboto";
 import { Button, Container } from "@material-ui/core";
-import firebase from "./../firebase.js";
 
-firebase.firestore().collection('trucks').add({
-  title: 'test'
-})
 
 const Header = () => {
   return (
