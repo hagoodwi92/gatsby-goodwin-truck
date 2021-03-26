@@ -1,10 +1,14 @@
 import * as React from "react";
 import {
-  Input,
-  FormHelperText,
-  InputLabel,
+  TableCell,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableContainer,
+  Table,
   Button,
   Container,
+  Paper
 } from "@material-ui/core";
 import { Link, StaticQuery } from "gatsby";
 import firebase from "./../firebase.js";
@@ -43,27 +47,41 @@ export default function Inventory(props) {
   const trucks = NewTrucks();
 
   return (
-    <Container style={pageStyles}>
-      <h1 style={headingAccentStyles}>Add a Truck</h1>
-      <form onSubmit={handleTruckForm}>
-        <label>Truck Name: </label>
-        <input type="text" name="name" placeholder="Name"></input>
-        <button type="submit">Submit</button>
-      </form>
-
-      <ul>
-        {trucks.map((truck) => (
-          <li key={truck.id}>
-            <ul>Name: {truck.name}</ul>
-          </li>
-        ))}
-      </ul>
-      <Link to="/">
-        <Button style={buttonStyle} variant="contained" color="primary">
-          <p>Home</p>
-        </Button>
-      </Link>
-    </Container>
+    <React.Fragment>
+      <Container style={pageStyles}>
+        <h1 style={headingAccentStyles}>Add a Truck</h1>
+        <form onSubmit={handleTruckForm}>
+          <label>Truck Name: </label>
+          <input type="text" name="name" placeholder="Name"></input>
+          <button type="submit">Submit</button>
+        </form>
+        <TableContainer component={Paper}>
+          <Table style={tableStyle} >
+            <TableHead>
+              <TableRow>
+                <TableCell>Truck (Model)</TableCell>
+                <TableCell>Year</TableCell>
+                <TableCell>Price</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {trucks.map((truck) => (
+                <TableRow key={truck.id}>
+                  <TableCell>{truck.name}</TableCell>
+                  <TableCell>(year)</TableCell>
+                  <TableCell>(price)</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Link to="/">
+          <Button style={buttonStyle} variant="contained" color="primary">
+            <p>Home</p>
+          </Button>
+        </Link>
+      </Container>
+    </React.Fragment>
   );
 }
 
@@ -87,3 +105,6 @@ const buttonStyle = {
   margin: 20,
   marginLeft: -10,
 };
+const tableStyle = {
+  minWidth: 650
+}
