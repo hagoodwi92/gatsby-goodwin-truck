@@ -9,31 +9,14 @@ import {
   Button,
   Container,
   Paper,
+  TextField
 } from "@material-ui/core";
-import { Link, StaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import firebase from "./../firebase.js";
 import "fontsource-roboto";
-import { propTypes } from "react-bootstrap/esm/Image";
-import { useFirestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import { useEffect, useState } from "react";
 
-// const handleDelete = (id) => {
-//   firebase.firestore().get({collection: 'truck', doc: id}).then((truck) => {
-//     const firestoretruck = {
-//       id: truck.id
-//     }
-// });
-//   firebase.firestore().delete({collection: 'truck', doc:id})
-// }
 
-const handleTruckForm = (event) => {
-  event.preventDefault();
-  firebase.firestore().collection("truck").add({
-    name: event.target.name.value,
-    year: event.target.year.value,
-    price: event.target.price.value,
-  });
-};
 
 function NewTrucks() {
   const [trucks, setTrucks] = useState([]);
@@ -57,15 +40,27 @@ function NewTrucks() {
 export default function Inventory(props) {
   const trucks = NewTrucks();
 
+  const handleTruckForm = (event) => {
+    event.preventDefault();
+    firebase.firestore().collection("truck").add({
+      name: event.target.name.value,
+      year: event.target.year.value,
+      price: event.target.price.value,
+    });
+
+    
+  };
+
   return (
     <React.Fragment>
       <Container style={pageStyles}>
         <h1 style={headingAccentStyles}>Add a Truck</h1>
         <form onSubmit={handleTruckForm}>
-          <input type="text" name="name" placeholder="Name"></input>
-          <input type="text" name="year" placeholder="Year"></input>
-          <input type="text" name="price" placeholder="Price"></input>
-          <button type="submit">Submit</button>
+          <TextField type="text" name="name" placeholder='Model'></TextField>
+          <TextField type="text" name="year" placeholder="Year"></TextField>
+          <TextField type="text" name="price" placeholder="Price"></TextField>
+          <Button type="submit">Submit</Button>
+          <Button type="reset">Clear Form</Button>
         </form>
         <br></br>
         <br></br>
@@ -76,6 +71,7 @@ export default function Inventory(props) {
                 <TableCell>Truck (Model)</TableCell>
                 <TableCell>Year</TableCell>
                 <TableCell>Price</TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -85,7 +81,7 @@ export default function Inventory(props) {
                   <TableCell>{truck.year}</TableCell>
                   <TableCell>{truck.price}</TableCell>
                   <TableCell>
-                    <button onClick={() => firebase.firestore().collection('truck').doc(truck.id).delete()}>Delete</button>
+                    <Button onClick={() => firebase.firestore().collection('truck').doc(truck.id).delete()}>Delete</Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -102,13 +98,6 @@ export default function Inventory(props) {
   );
 }
 
-const linkStyle = {
-  color: "#0e3786",
-  fontWeight: "bold",
-  fontSize: "16px",
-  verticalAlign: "5%",
-};
-
 const headingAccentStyles = {
   color: "#0e3786",
 };
@@ -122,6 +111,4 @@ const buttonStyle = {
   margin: 20,
   marginLeft: -10,
 };
-const tableStyle = {
-  minWidth: 650,
-};
+
