@@ -17,6 +17,15 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { useFirestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import { useEffect, useState } from "react";
 
+// const handleDelete = (id) => {
+//   firebase.firestore().get({collection: 'truck', doc: id}).then((truck) => {
+//     const firestoretruck = {
+//       id: truck.id
+//     }
+// });
+//   firebase.firestore().delete({collection: 'truck', doc:id})
+// }
+
 const handleTruckForm = (event) => {
   event.preventDefault();
   firebase.firestore().collection("truck").add({
@@ -61,7 +70,7 @@ export default function Inventory(props) {
         <br></br>
         <br></br>
         <TableContainer component={Paper}>
-          <Table >
+          <Table>
             <TableHead>
               <TableRow style={headingAccentStyles}>
                 <TableCell>Truck (Model)</TableCell>
@@ -75,6 +84,9 @@ export default function Inventory(props) {
                   <TableCell>{truck.name}</TableCell>
                   <TableCell>{truck.year}</TableCell>
                   <TableCell>{truck.price}</TableCell>
+                  <TableCell>
+                    <button onClick={() => firebase.firestore().collection('truck').doc(truck.id).delete()}>Delete</button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

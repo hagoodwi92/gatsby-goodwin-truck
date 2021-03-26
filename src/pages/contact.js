@@ -34,8 +34,10 @@ const FormTest = () => {
         <FormHelperText id="email-text">
           We'll never share your email.
         </FormHelperText>
-        <Button type="submit" color="primary"></Button>
+        <Button type="submit" color="primary">Submit</Button>
       </FormControl>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <Link style={linkStyle} to="/">
