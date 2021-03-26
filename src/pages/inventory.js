@@ -8,7 +8,7 @@ import {
   Table,
   Button,
   Container,
-  Paper
+  Paper,
 } from "@material-ui/core";
 import { Link, StaticQuery } from "gatsby";
 import firebase from "./../firebase.js";
@@ -21,6 +21,8 @@ const handleTruckForm = (event) => {
   event.preventDefault();
   firebase.firestore().collection("truck").add({
     name: event.target.name.value,
+    year: event.target.year.value,
+    price: event.target.price.value,
   });
 };
 
@@ -51,14 +53,17 @@ export default function Inventory(props) {
       <Container style={pageStyles}>
         <h1 style={headingAccentStyles}>Add a Truck</h1>
         <form onSubmit={handleTruckForm}>
-          <label>Truck Name: </label>
           <input type="text" name="name" placeholder="Name"></input>
+          <input type="text" name="year" placeholder="Year"></input>
+          <input type="text" name="price" placeholder="Price"></input>
           <button type="submit">Submit</button>
         </form>
+        <br></br>
+        <br></br>
         <TableContainer component={Paper}>
-          <Table style={tableStyle} >
+          <Table >
             <TableHead>
-              <TableRow>
+              <TableRow style={headingAccentStyles}>
                 <TableCell>Truck (Model)</TableCell>
                 <TableCell>Year</TableCell>
                 <TableCell>Price</TableCell>
@@ -68,8 +73,8 @@ export default function Inventory(props) {
               {trucks.map((truck) => (
                 <TableRow key={truck.id}>
                   <TableCell>{truck.name}</TableCell>
-                  <TableCell>(year)</TableCell>
-                  <TableCell>(price)</TableCell>
+                  <TableCell>{truck.year}</TableCell>
+                  <TableCell>{truck.price}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -106,5 +111,5 @@ const buttonStyle = {
   marginLeft: -10,
 };
 const tableStyle = {
-  minWidth: 650
-}
+  minWidth: 650,
+};
