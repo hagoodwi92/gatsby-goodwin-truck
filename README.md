@@ -7,7 +7,7 @@
   GoodwinTruck, Built on Gatsby/React
 </h1>
 
-<h5>This demo project uses a React/Gatsby frontend connected to a Firebase noSql database to store trucks.</h5>
+<h5>This demo project uses a React/Gatsby/Material AI frontend connected to a Firebase noSql database to store trucks.</h5>
 
 ## 🚀 Quick start
 
