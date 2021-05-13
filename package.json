@@ -1,6 +1,9 @@
 {
   "name": "goodwin-truck",
   "version": "1.0.0",
+  "engines": {
+    "npm": "6.x"
+  },
   "private": true,
   "description": "goodwinTruck",
   "author": "hagoodwin",
